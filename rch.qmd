@@ -1,0 +1,188 @@
+---
+title: Festschrift? Gesundheit!
+author: R. Carter Hill
+institute: Louisiana State University
+date: today
+editor: source
+bibliography: rch.bib
+format:
+  revealjs:
+    background-transition: fade
+    css: rch.css
+    center: true
+    chalkboard: true
+    footer: Arrr, Get Yer Own Damn Festschrift | R Carter Hill
+    html-math-method: mathjax
+    include-in-header:
+      - text: |
+          <script>
+          window.MathJax = {
+            tex: {
+              tags: 'ams'
+            }
+          };
+          </script>    
+    incremental: true
+    multiplex: true    
+    slide-number: true
+    theme: default
+    transition: slide
+---
+
+# R Carter Hill (RCH)
+
+## The Origin Story of RCH
+
+- RCH's father, who wore the Alpha hat in the family, was a moody pirate and commander of a feared galleon who fiercely wanted a son to carry on the family tradition
+
+- RCH was delivered via C-section shortly after his impatient father motioned towards his pregnant mother and then instructed his first mate with the words "Arrr, cut 'er hull!", which thereafter became his birth name
+
+- Leaving behind the pirate's life to seek a more stable one, an immigration official at Ellis Island prone to misspellings incorrectly recorded the birth name "Arrr, cut 'er hull" as "R Carter Hill" on the immigration certificate
+
+- This typographical mistake consigned him to forever wear the Beta hat in the family
+
+- The family hats are today proudly displayed by academic pirates and now you know the origin of the $\hat\alpha$ and $\hat\beta$ notation
+
+## Notable Academic Achievements
+
+In a more serious vein, RCH has had a distinguished academic career:
+
+- Over 120 scholarly papers
+
+- Coauthor of several textbooks
+
+- Senior Co-editor of Advances in Econometrics
+
+- Lifetime Achievement Award in Teaching
+
+- Outstanding Teaching Award
+
+## Recent Publications
+
+- RCH's academic career has been marked by a number of notable publications, spans several decades, and includes a wide range of topics (let your cursor hover over a highlighted reference date to see the full citation)
+
+- Some of R Carter Hill's noteworthy  contributions include @griffiths2022rejoinder, @griffiths2022power, @martin2022baumol, @zeng2020steinrule, @campbell2006imposing, @hill1997estimation, @deis1995application, @kim1995shrinkage, @hill1994statistical, @hill1991use, @hill1990improved, @judge1990adaptive, @griffiths1987small, @hill1987improved, @hill1984risk, and @fomby1978optimality, among others 
+
+- Naturally, Quarto Markdown and reveal.js fully support Bib$\TeX$
+
+- Note also the dynamic scrollable reference section at the end of the presentation that can be incorporated into a single slide and contain the full list of references noted above
+
+
+## Mathematics and Pedagogy
+
+- Consider the model
+  
+  \begin{align}
+  \label{eq:regression}
+  \text{E}(Y|X) & = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_k X_k \\
+  \label{eq:variance}
+  \text{Var}(Y|X) & = \sigma(X)^2
+  \end{align}
+  
+- Note that \eqref{eq:regression} is a regression model and \eqref{eq:variance} is a volatility model
+
+- Note also that we are using standard $\LaTeX$ syntax (e.g., `\text{E}(Y|X) & = \beta_0`) to render the mathematics
+
+- As well, `\label{}` and `\eqref{}` commands are supported thanks to MathJax
+
+- Also, multi line equations are supported via `\begin{align}...\end{align}` etc.
+
+## Dynamic Capabilities
+
+- So far you might be unimpressed and unlikely to make the switch from, say, Beamer or PowerPoint to Quarto Markdown and reveal.js
+
+- The following illustrations showcase the dynamic capabilities of reveal.js
+
+- By way of illustration we consider incorporating executable code, tabsets, and generating interactive slides
+
+- These examples are borrowed shamelessly from <https://quarto.org/docs/presentations/revealjs> (with a few modifications)
+
+- This link provides a more detailed discussion of the dynamic capabilities of reveal.js, far more than we could ever accomplish here, and I encourage you to explore it further
+
+## Executable Code
+
+- Copy-and-pasting of executable code chunks can be incorporated into your presentation, and its output can be displayed as well (hover your cursor over the upper right corner of the code box until a clipboard icon appears, then click on the icon to copy the code then paste it into R/RStudio and run it)
+
+  ```{r}
+  #| echo: true
+  #| fig-width: 10
+  #| fig-height: 4.5
+  #| output-location: slide
+  #| label: fig-scatterplot
+  #| fig-cap: Scatterplot of `mtcars` data
+  library(ggplot2)
+  mtcars$Transmission <- factor(mtcars$am, labels = c("Automatic", "Manual"))
+  ggplot(mtcars, aes(hp, mpg, color = Transmission)) +
+    geom_point() +
+    geom_smooth(formula = y ~ x, method = "loess")
+  ```
+  
+- This will produce the output on the following slide
+
+## Tabsets {.smaller}
+
+Dynamic tabsets can be created to organize content (click on the `Plot` and `Data` tabs below to reveal the content)
+
+::: panel-tabset
+### Plot
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 3.5
+#| label: fig-scatterplottab
+#| fig-cap: Scatterplot of `mtcars` data in tabsets
+library(ggplot2)
+mtcars$Transmission <- factor(mtcars$am, labels = c("Automatic", "Manual"))
+ggplot(mtcars, aes(hp, mpg, color = Transmission)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+### Data
+
+```{r}
+knitr::kable(mtcars[1:6,])
+```
+:::
+
+## Interactive Slides
+
+Embed Observable and Shiny in your presentation (manipulate sliders or enter values to modify the regression line in the scatterplot below, for example)
+
+```{r}
+ojs_define(actors = data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+))
+```
+
+```{ojs}
+//| panel: sidebar
+viewof talentWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: "talent weight" })
+viewof looksWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: "looks weight" })
+viewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: "min fame" })
+```
+
+```{ojs}
+//| panel: fill
+import { plotActors } from './actors.js';
+plotActors(actors, talentWeight, looksWeight, minimum)
+```
+
+## Summary Remarks
+
+- If you remain unimpressed by the dynamic capabilities of reveal.js, then you are likely a lost cause, and RCH might be inclined to tell you to "Arrr, Get Yer Own Damn Festschrift!"
+
+- If, however, you are intrigued by its possibilities, then I encourage you to explore and incorporate Quarto Markdown and reveal.js into your own presentations
+
+- These slides and the accompanying chapter, each authored in Quarto Markdown, are available for download at  <a href="https://github.com/JeffreyRacine/TBA">github.com/JeffreyRacine/TBA</a>
+
+- True out the chalk board, notes canvas, multiplexing, and other features of reveal.js that can enhance your presentations, engage your audience, and upgrade your skillset for teaching econometrics and sharing your work with the world
+
+- Feel free to contact me at <a href="mailto:racinej@mcmaster.ca">racinej@mcmaster.ca</a> or report an issue at the GitHub repository listed above
+
+## References (Scrollable Slide) {.scrollable}
+
+A lengthy list of references can be incorporated on one slide and made scrollable (scroll up or down to view the entire list):
+
