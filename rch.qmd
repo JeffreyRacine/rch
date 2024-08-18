@@ -59,18 +59,18 @@ In a more serious vein, RCH has had a distinguished academic career:
 
 ## Recent Publications
 
-- RCH's academic career has been marked by a number of notable publications, spans several decades, and includes a wide range of topics (let your cursor hover over a highlighted reference date to see the full citation)
+- RCH's academic career has birthed a number of notable publications, spans several decades, and includes a wide range of topics (let your cursor hover over a highlighted reference date below to see the full citation)
 
 - Some of R Carter Hill's noteworthy  contributions include @griffiths2022rejoinder, @griffiths2022power, @martin2022baumol, @zeng2020steinrule, @campbell2006imposing, @hill1997estimation, @deis1995application, @kim1995shrinkage, @hill1994statistical, @hill1991use, @hill1990improved, @judge1990adaptive, @griffiths1987small, @hill1987improved, @hill1984risk, and @fomby1978optimality, among others 
 
 - Naturally, Quarto Markdown and reveal.js fully support Bib$\TeX$
 
-- Note also the dynamic scrollable reference section at the end of the presentation that can be incorporated into a single slide and contain the full list of references noted above
+- Note also the dynamic scrollable reference section at the end of the presentation that can be incorporated into a single slide and contains the full list of references noted above
 
 
-## Mathematics and Pedagogy
+## Mathematics and Pedagogy and reveal.js
 
-- Consider the model
+- Consider, by way of illustration, the model
   
   \begin{align}
   \label{eq:regression}
@@ -83,7 +83,7 @@ In a more serious vein, RCH has had a distinguished academic career:
 
 - Note also that we are using standard $\LaTeX$ syntax (e.g., `\text{E}(Y|X) & = \beta_0`) to render the mathematics
 
-- As well, `\label{}` and `\eqref{}` commands are supported thanks to MathJax
+- As well, standard equation numbering and cross referencing via the `\label{}` and `\eqref{}` commands are supported thanks to MathJax
 
 - Also, multi line equations are supported via `\begin{align}...\end{align}` etc.
 
@@ -95,13 +95,13 @@ In a more serious vein, RCH has had a distinguished academic career:
 
 - By way of illustration we consider incorporating executable code, tabsets, and generating interactive slides
 
-- These examples are borrowed shamelessly from <https://quarto.org/docs/presentations/revealjs> (with a few modifications)
+- These examples are borrowed shamelessly from <https://quarto.org/docs/presentations/revealjs> (with minor modifications)
 
-- This link provides a more detailed discussion of the dynamic capabilities of reveal.js, far more than we could ever accomplish here, and I encourage you to explore it further
+- The link above provides a more detailed discussion of the dynamic capabilities of reveal.js, far more than we could ever accomplish here, and I encourage you to explore it further
 
 ## Executable Code
 
-- Copy-and-pasting of executable code chunks can be incorporated into your presentation, and its output can be displayed as well (hover your cursor over the upper right corner of the code box until a clipboard icon appears, then click on the icon to copy the code then paste it into R/RStudio and run it)
+- Copy-and-pasting of executable code chunks can be incorporated into your presentation, and its output can be displayed as well (let your cursor hover over the upper right corner of the code box until a clipboard icon appears, then click the icon to copy the code then paste it into R/RStudio and run it)
 
   ```{r}
   #| echo: true
@@ -172,13 +172,13 @@ plotActors(actors, talentWeight, looksWeight, minimum)
 
 ## Summary Remarks
 
-- If you remain unimpressed by the dynamic capabilities of reveal.js, then you are likely a lost cause, and RCH might be inclined to tell you to "Arrr, Get Yer Own Damn Festschrift!"
+- If you remain unimpressed by the dynamic capabilities of reveal.js, RCH might be inclined to tell you to "Arrr, Get Yer Own Damn Festschrift!"
 
 - If, however, you are intrigued by its possibilities, then I encourage you to explore and incorporate Quarto Markdown and reveal.js into your own presentations
 
 - These slides and the accompanying chapter, each authored in Quarto Markdown, are available for download at  <a href="https://github.com/JeffreyRacine/TBA">github.com/JeffreyRacine/TBA</a>
 
-- True out the chalk board, notes canvas, multiplexing, and other features of reveal.js that can enhance your presentations, engage your audience, and upgrade your skillset for teaching econometrics and sharing your work with the world
+- Try out the chalk board, notes canvas, multiplexing, and other features of reveal.js that can enhance your presentations, engage your audience, and upgrade your skillset for teaching econometrics and sharing your work with the world
 
 - Feel free to contact me at <a href="mailto:racinej@mcmaster.ca">racinej@mcmaster.ca</a> or report an issue at the GitHub repository listed above
 
